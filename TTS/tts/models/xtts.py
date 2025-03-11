@@ -524,7 +524,7 @@ class Xtts(BaseTTS):
         speaker_embedding = speaker_embedding.to(self.device)
         if enable_text_splitting:
             text = split_sentence(text, language, self.tokenizer.char_limits[language])
-        else:
+        elif type(text) != list:
             text = [text]
 
         wavs = []
